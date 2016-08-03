@@ -3,6 +3,12 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 var cache = {};
+var socketio = require('socket.io');
+var io;
+var guestNumber = 1;
+var nickNames = {};
+var namesUsed = {};
+var currentRoom = {};
 
 function send404(res) {
     res.writeHead(404, { 'Content-type': 'text/plain' });
