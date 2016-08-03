@@ -1,0 +1,2 @@
+E:\张泽清\Chatroom\obj\Debug\Chatroom.njsprojResolveAssemblyReference.cache
+E:\张泽清\Chatroom\bin\Microsoft.NodejsTools.WebRole.dll
