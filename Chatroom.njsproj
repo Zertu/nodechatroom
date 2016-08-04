@@ -39,11 +39,13 @@
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\mime\" />
     <Folder Include="typings\globals\node\" />
+    <Folder Include="typings\globals\socket.io-client\" />
     <Folder Include="typings\globals\socket.io\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="typings\globals\mime\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\socket.io-client\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\socket.io\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>

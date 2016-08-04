@@ -20,6 +20,7 @@ function processUserInput(chatApp,socket){
 	$('#send-message').val('');
 }
 var socket =io.connect();
+alert(1);
 $(document).ready(function(){
 	var chatApp =new Chat(socket);
 	socket.on('nameResult',function(result){
@@ -29,17 +30,21 @@ $(document).ready(function(){
 		}else{
 			message=result.message;
 		}
-$('#messages').append(divSystemContentElement(message));
-	});
+		$('#messages').append(divSystemContentElement(message));
+	});//没问题
 	socket.on('joinResult',function(result){
 		$('#room').text(result.room);
 		$('#messages').append(divSystemContentElement('房间已改变'));
-	});
-	socket.on('room',function(rooms){
+	});//前面的empty()函数
+	socket.on('message',function(message){
+		var newElement=$('<div></div>').text(message.text);
+		$('#messages').append(newElement);
+	})//没问题
+	socket.on('rooms',function(rooms){
 		$('#room-list').empty();
 		for(var room in rooms){
 			room=room.substring(1,room.length);
-			if(room!=''){
+			if(room!=' '){
 				$('#room-list').append(divEscapedContentElement(room));
 			}
 		}

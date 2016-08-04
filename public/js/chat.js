@@ -1,7 +1,7 @@
 var Chat = function(socket){
 	this.socket=socket;
 }
-Chat.prototype.sendMessage=function(room,Text){
+Chat.prototype.sendMessage=function(room,text){
 	var message ={
 		room:room,
 		text:text
@@ -27,7 +27,7 @@ Chat.prototype.processCommand = function(command){
 		case 'nick':
 		words.shift();
 		var name =words.join(' ');
-		this.socket.emit('nameAttemt',name);
+		this.socket.emit('nameAttempt',name);
 		break;
 		default:
 		message='未知命令';

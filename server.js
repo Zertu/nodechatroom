@@ -3,12 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 var cache = {};
-var socketio = require('socket.io');
-var io;
-var guestNumber = 1;
-var nickNames = {};
-var namesUsed = {};
-var currentRoom = {};
+var chatServer = require('./lib/chat_server');
 
 function send404(res) {
     res.writeHead(404, { 'Content-type': 'text/plain' });
@@ -54,6 +49,7 @@ var server = http.createServer(function (request, response) {
     var absPath = './' + filePath;
     serveStatic(response, cache, absPath);
 });
+chatServer.listen(server);
 server.listen(3000, function () {
     // 终端打印如下信息
     console.log('Success http://127.0.0.1:3000');
